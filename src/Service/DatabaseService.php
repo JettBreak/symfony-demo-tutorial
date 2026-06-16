@@ -18,6 +18,7 @@ class DatabaseService
         $sql = 'SELECT * FROM customers';
 
         $stmt = $conn->prepare($sql);
+        
         $result = $stmt->executeQuery()->fetchAllAssociative();
 
         return $result ?? [];
