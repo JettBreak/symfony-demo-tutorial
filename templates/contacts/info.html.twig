@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_widget(form.id) }}
+
+    <div class="w-100 grid grid-cols-2 gap-3 border-white ">
+      {{ form_row(form.name, {
+        'attr': {
+          'class': 'w-full form-control border border-slate-400 rounded-md px-3',
+          'placeholder': 'Enter your full name'
+        }
+      }) }}
+      <button type="submit" class="btn btn-primary mt-2 bg-slate-400 border-white text-white rounded-md cursor-pointer hover:bg-slate-500">Submit</button>
+    </div>
+
+  {{ form_end(form) }}
+{% endblock %}

@@ -35,6 +35,18 @@
             "./migrations/.gitignore"
         ]
     },
+    "php-cs-fixer/shim": {
+        "version": "3.95",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "6cf95ac1baa3d6f5816dd4db7281997912f239a6"
+        },
+        "files": [
+            "./.php-cs-fixer.dist.php"
+        ]
+    },
     "phpunit/phpunit": {
         "version": "13.2",
         "recipe": {
@@ -317,6 +329,18 @@
         },
         "files": [
             "./config/packages/messenger.yaml"
+        ]
+    },
+    "symfonycasts/tailwind-bundle": {
+        "version": "0.13",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "0.8",
+            "ref": "d0bd0276f74de90adfaa4c6cd74cc0caacd77e0a"
+        },
+        "files": [
+            "./config/packages/symfonycasts_tailwind.yaml"
         ]
     },
     "twig/extra-bundle": {

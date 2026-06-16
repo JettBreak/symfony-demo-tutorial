@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% import "macros/core.html.twig" as core %}
+
+{% block body %}
+
+{{ core.welcome_message(data.name, data.gender) }}
+<br>
+{{ core.render_list(data.customers, 'app_contact_edit') }}
+
+{# {% include 'components/welcome.html.twig' %} #}
+
+<br>
+{{ core.render_add_btn(data.module, data.add_url) }}
+<br>
+<br>
+{% for label, messages in app.flashes %}
+  {% for message in messages %}
+    {{ message }}
+  {% endfor %}
+{% endfor %}
+
+
+{% endblock %}

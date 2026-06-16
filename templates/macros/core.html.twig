@@ -1,0 +1,57 @@
+
+{% macro welcome_message(_name, _gender) %}
+
+  {% set prefix = 'Mr.' %}
+
+  {% if _gender == 'Female' %}
+    {% set prefix = 'Ms.' %}
+  {% endif %}
+
+  Welcome {{ prefix }} {{ _name }}!<br>
+
+{% endmacro %}
+
+{% macro render_list(_list, _edit_route_name) %}
+
+  <table>
+    <thead class="bg-white text-slate-800">
+      <tr>
+        <th class="w-1">ID</th>
+        <th class="w-1">Name</th>
+        <th class="w-1">Date Created</th>
+        <th class="w-1">Last Update</th>
+        <th class="w-1">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for item in _list %}
+      <tr>
+        <td class="w-1">{{item.id}}</td>
+        <td class="w-1">{{item.name}}</td>
+        <td class="w-1">{{item.dtcreated}}</td>
+        <td class="w-1">{{item.dtupdated}}</td>
+        <td class="w-1 center"><a href="{{ path(_edit_route_name, {'id': item.id|default(1)}) }}">Edit</a> | <a href="#">Delete</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <style>
+  .w-1 {
+    border:1px solid #999;
+    width: 200px;
+    padding:5px 2px 2px 5px;
+  }
+  .center {
+    text-align: center;
+  }
+  a:link {
+    color: orange;
+  }
+  </style>
+
+{% endmacro %}
+
+{% macro render_add_btn(_module, _action_url) %}
+  <button class="w-40 h-10 btn btn-primary mt-2 bg-slate-400 border-white text-white rounded-md cursor-pointer hover:bg-slate-500" onclick="window.location.href='{{ path(_action_url) }}'">Add {{ _module }}</button>
+{% endmacro %}
